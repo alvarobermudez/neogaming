@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neogaming</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" type="image/png" href="NEOGAMING.png">
+        <script>
+            function menue() {
+                var x = document.getElementById("menua");
+                if (x.className === "menul") {
+                    x.className += " responsive";
+                } 
+                else {
+                    x.className = "menul";
+                }
+            }
+        </script>
+        <script>
+            function getCookie(c_name){
+                var c_value = document.cookie;
+                var c_start = c_value.indexOf(" " + c_name + "=");
+                if (c_start == -1){
+                    c_start = c_value.indexOf(c_name + "=");
+                }
+                if (c_start == -1){
+                    c_value = null;
+                }else{
+                    c_start = c_value.indexOf("=", c_start) + 1;
+                    var c_end = c_value.indexOf(";", c_start);
+                    if (c_end == -1){
+                        c_end = c_value.length;
+                    }
+                    c_value = unescape(c_value.substring(c_start,c_end));
+                }
+                return c_value;
+            }
+             
+            function setCookie(c_name,value,exdays){
+                var exdate=new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+                document.cookie=c_name + "=" + c_value;
+            }
+             
+            if(getCookie('tiendaaviso')!="1"){
+                document.getElementById("barraaceptacion").style.display="block";
+            }
+            function PonerCookie(){
+                setCookie('tiendaaviso','1',365);
+                document.getElementById("barraaceptacion").style.display="none";
+            }
+            </script>
+    </head>
+    <body>
+        <nav class="menul" id="menua">
+            <a href=”” class="sombra">Inici</a>
+            <a href=””>Qui Som</a>
+            <a href=””>FAQs</a>
+            <a href=””>Contacta</a>
+            <a href="javascript:void(0);" class="menui" onclick="menue()"><img src="blanco.svg" alt="no funciona"></a>
+        </nav>
+        <div class="contenido">
+            <p>
+                NeoGaming es un nou proyecte de Gta Roleplay en FiveM, volem crear una gran comunitat
+                amb bons jugadors i que siguin actius, anirem actualitzant periodicament el servidor
+                per a que tingueu la millor experiencia posible, s'informara de les actualitzacions 
+                del servidor amb un dia d'antelació i tots els dies i haura un reinici del servidor
+                programat a les 16:00 per millorar l'estabilitat.
+            </p>
+            <video id="videoc" src="gta.mp4" controls autoplay>Aquest video no es pot reproduir al teu navegador.</video>
+        </div>
+        <footer>
+            <div id="barraaceptacion" style="display: block;">
+                <div class="inner">
+                    Solicitamos su permiso para obtener datos estadísticos de su navegación en esta web, en cumplimiento del Real 
+                    Decreto-ley 13/2012. Si continúa navegando consideramos que acepta el uso de cookies.
+                    <a href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>OK</b></a> | 
+                    <a href="http://politicadecookies.com" target="_blank" class="info">Más información</a>
+                </div>
+            </div>
+            <p>Contingut del peu de pagina</p>
+        </footer>
+    </body>
+</html>
